@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.btsciel.convertisseur.Controller">
-   <Button fx:id="buttonConvertion" layoutX="110.0" layoutY="241.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="126.0" stylesheets="@../../../appstyle/css.css" />
+   <Button fx:id="buttonConvertion" layoutX="110.0" layoutY="247.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="59.0" stylesheets="@../../../appstyle/css.css" />
    <TextField fx:id="textField_Init" layoutX="68.0" layoutY="180.0" prefHeight="45.0" prefWidth="209.0" />
    <TextField fx:id="textField_Final" disable="true" editable="false" layoutX="68.0" layoutY="336.0" prefHeight="45.0" prefWidth="209.0" />
    <Label fx:id="label_Init" layoutX="298.0" layoutY="180.0" prefHeight="45.0" prefWidth="75.0" text="Euro" />
