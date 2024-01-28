@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca1fdc5b-5963-4fdb-a46e-41524c99e474" name="Changes" comment="Version">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/hunnids.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/btsciel/convertisseur/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/btsciel/convertisseur/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/appstyle/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appstyle/css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/btsciel/convertisseur/view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/btsciel/convertisseur/view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +47,9 @@
     &quot;Gradle.Convertisseur [:Main.main()].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;T:/Java/Convertisseur&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaProjects/Convertisseur/src/main/resources/images&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -55,12 +61,30 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProjects\Convertisseur\src\main\resources\images" />
       <recent name="T:\Java\Convertisseur" />
       <recent name="T:\Java\Convertisseur\src\main\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaProjects\Convertisseur\src\main\resources\images" />
       <recent name="T:\Java\Convertisseur\src\main\resources\images" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="fr.btsciel.convertisseur.Main" />
+      <module name="Convertisseur.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-cf227e86" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -78,6 +102,13 @@
       <workItem from="1706098966739" duration="29000" />
       <workItem from="1706099002979" duration="12000" />
       <workItem from="1706099021865" duration="17000" />
+      <workItem from="1706316071438" duration="53000" />
+      <workItem from="1706383975100" duration="729000" />
+      <workItem from="1706387065579" duration="2000" />
+      <workItem from="1706387350751" duration="9782000" />
+      <workItem from="1706444697581" duration="5343000" />
+      <workItem from="1706450884619" duration="743000" />
+      <workItem from="1706451647463" duration="1670000" />
     </task>
     <task id="LOCAL-00001" summary="Version">
       <option name="closed" value="true" />
