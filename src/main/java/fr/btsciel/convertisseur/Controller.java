@@ -21,9 +21,6 @@ public class Controller implements Initializable {
     public TextField textField_Final;
     public Button buttonConvertion;
     public ComboBox<String> comboSelection = new ComboBox<>();
-    public double taux_Euro_Dollar = 1.11;
-    public double taux_Euro_Livre = 0.85;
-    public double taux_Euro_Yen = 160.99;
     public double valeur_Conversion;
     public RotateTransition rotation;
     public DecimalFormat df = new DecimalFormat("0.00");
@@ -82,8 +79,8 @@ public class Controller implements Initializable {
 
         comboSelection.setOnAction(event -> {
 
-            if (Objects.equals(comboSelection.getValue(), "Euro-Dollar US")) {
-                label_Final.setText("Dollar US");
+            if (Objects.equals(comboSelection.getValue(), conversionDevises.get(0).getPrompt())) {
+                label_Final.setText(conversionDevises.get(0).getCible());
                 textField_Init.setDisable(false);
                 textField_Final.setDisable(true);
                 if (!isEuroFirstChosen[0]) {
@@ -93,8 +90,8 @@ public class Controller implements Initializable {
                 isEuroFirstChosen[0] = true;
                 isEuroSecondChosen[0] = false;
 
-            } else if (Objects.equals(comboSelection.getValue(), "Dollar US-Euro")) {
-                label_Final.setText("Dollar US");
+            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(1).getPrompt())) {
+                label_Final.setText(conversionDevises.get(0).getCible());
                 textField_Init.setDisable(true);
                 textField_Final.setDisable(false);
                 if (!isEuroSecondChosen[0]) {
@@ -104,8 +101,8 @@ public class Controller implements Initializable {
                 isEuroSecondChosen[0] = true;
                 isEuroFirstChosen[0] = false;
 
-            } else if (Objects.equals(comboSelection.getValue(), "Euro-Livre")) {
-                label_Final.setText("Livre");
+            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(2).getPrompt())) {
+                label_Final.setText(conversionDevises.get(2).getCible());
                 textField_Init.setDisable(false);
                 textField_Final.setDisable(true);
                 if (!isEuroFirstChosen[0]) {
@@ -115,8 +112,8 @@ public class Controller implements Initializable {
                 isEuroFirstChosen[0] = true;
                 isEuroSecondChosen[0] = false;
 
-            } else if (Objects.equals(comboSelection.getValue(), "Livre-Euro")) {
-                label_Final.setText("Livre");
+            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(3).getPrompt())) {
+                label_Final.setText(conversionDevises.get(2).getCible());
                 textField_Init.setDisable(true);
                 textField_Final.setDisable(false);
                 if (!isEuroSecondChosen[0]) {
@@ -126,8 +123,8 @@ public class Controller implements Initializable {
                 isEuroSecondChosen[0] = true;
                 isEuroFirstChosen[0] = false;
 
-            } else if (Objects.equals(comboSelection.getValue(), "Euro-Yen")) {
-                label_Final.setText("Yen");
+            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(4).getPrompt())) {
+                label_Final.setText(conversionDevises.get(4).getCible());
                 textField_Init.setDisable(false);
                 textField_Final.setDisable(true);
                 if (!isEuroFirstChosen[0]) {
@@ -137,8 +134,8 @@ public class Controller implements Initializable {
                 isEuroFirstChosen[0] = true;
                 isEuroSecondChosen[0] = false;
 
-            } else if (Objects.equals(comboSelection.getValue(), "Yen-Euro")) {
-                label_Final.setText("Yen");
+            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(5).getPrompt())) {
+                label_Final.setText(conversionDevises.get(4).getCible());
                 textField_Init.setDisable(true);
                 textField_Final.setDisable(false);
                 if (!isEuroSecondChosen[0]) {
