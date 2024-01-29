@@ -1,0 +1,63 @@
+Index: src/main/java/fr/btsciel/convertisseur/Controller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.btsciel.convertisseur;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.TextField;\r\n\r\nimport java.net.URL;\r\nimport java.text.DecimalFormat;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class Controller implements Initializable {\r\n    public Label label_Init;\r\n    public Label label_Final;\r\n    public TextField textField_Init;\r\n    public TextField textField_Final;\r\n    public Button buttonConvertion;\r\n    public double taux_Euro_Dollar;\r\n    public double taux_Euro_Livre;\r\n    public double taux_Euro_Yen;\r\n    public double valeur_Conversion;\r\n    public DecimalFormat df;\r\n    public ConversionDevise [] tabConversionDevise;\r\n\r\n    @Override\r\n    public void initialize(URL location, ResourceBundle resources) {\r\n\r\n    }\r\n    public void convertion(ActionEvent actionEvent) {\r\n\r\n    }\r\n    public void comboSelection(ActionEvent actionEvent) {\r\n\r\n    }\r\n    public void fabriqueDonnees() {\r\n\r\n    }\r\n    public void initConvertion(ConversionDevise conversionDevise) {\r\n\r\n    }\r\n    public void alerteFormat() {\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/btsciel/convertisseur/Controller.java b/src/main/java/fr/btsciel/convertisseur/Controller.java
+--- a/src/main/java/fr/btsciel/convertisseur/Controller.java	(revision 6cd494f0bd0d7100e3dcb74cd30f5dc9d6c9996f)
++++ b/src/main/java/fr/btsciel/convertisseur/Controller.java	(date 1706100178782)
+@@ -16,7 +16,7 @@
+     public TextField textField_Init;
+     public TextField textField_Final;
+     public Button buttonConvertion;
+-    public double taux_Euro_Dollar;
++    public double taux_Euro_Dollar = 1.11;
+     public double taux_Euro_Livre;
+     public double taux_Euro_Yen;
+     public double valeur_Conversion;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ca1fdc5b-5963-4fdb-a46e-41524c99e474\" name=\"Changes\" comment=\"Version\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2bJSfhhacS2jc5eGx4oXtuxfiNH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Gradle.Convertisseur [:Main.main()].executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;T:/Java/Convertisseur&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"T:\\Java\\Convertisseur\" />\r\n      <recent name=\"T:\\Java\\Convertisseur\\src\\main\\resources\\images\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"T:\\Java\\Convertisseur\\src\\main\\resources\\images\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ca1fdc5b-5963-4fdb-a46e-41524c99e474\" name=\"Changes\" comment=\"\" />\r\n      <created>1705931795368</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1705931795368</updated>\r\n      <workItem from=\"1705931796398\" duration=\"140000\" />\r\n      <workItem from=\"1705931943357\" duration=\"24000\" />\r\n      <workItem from=\"1705931975274\" duration=\"52000\" />\r\n      <workItem from=\"1705932059563\" duration=\"2258000\" />\r\n      <workItem from=\"1706098933106\" duration=\"27000\" />\r\n      <workItem from=\"1706098966739\" duration=\"29000\" />\r\n      <workItem from=\"1706099002979\" duration=\"12000\" />\r\n      <workItem from=\"1706099021865\" duration=\"17000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Version\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1705934203948</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1705934203948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Version\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1705934310650</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1705934310650</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Version\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Version\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6cd494f0bd0d7100e3dcb74cd30f5dc9d6c9996f)
++++ b/.idea/workspace.xml	(date 1706100339570)
+@@ -5,7 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="ca1fdc5b-5963-4fdb-a46e-41524c99e474" name="Changes" comment="Version">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/btsciel/convertisseur/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/btsciel/convertisseur/Controller.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -78,6 +78,7 @@
+       <workItem from="1706098966739" duration="29000" />
+       <workItem from="1706099002979" duration="12000" />
+       <workItem from="1706099021865" duration="17000" />
++      <workItem from="1706099276461" duration="1063000" />
+     </task>
+     <task id="LOCAL-00001" summary="Version">
+       <option name="closed" value="true" />
+@@ -95,7 +96,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1705934310650</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Version">
++      <option name="closed" value="true" />
++      <created>1706100050089</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1706100050089</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">

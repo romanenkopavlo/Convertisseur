@@ -14,11 +14,11 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></TextField>
-   <Label fx:id="label_Init" layoutX="251.0" layoutY="164.0" prefHeight="46.0" prefWidth="43.0" text="Euro">
+   <Label fx:id="label_Init" layoutX="251.0" layoutY="164.0" prefHeight="46.0" prefWidth="43.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>
-   <Label fx:id="label_Final" layoutX="251.0" layoutY="309.0" prefHeight="45.0" prefWidth="68.0" text="Dollar US">
+   <Label fx:id="label_Final" layoutX="251.0" layoutY="309.0" prefHeight="45.0" prefWidth="68.0">
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>

@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca1fdc5b-5963-4fdb-a46e-41524c99e474" name="Changes" comment="Version">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/hunnids.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/btsciel/convertisseur/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/btsciel/convertisseur/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/appstyle/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/appstyle/css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fr/btsciel/convertisseur/view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/btsciel/convertisseur/view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

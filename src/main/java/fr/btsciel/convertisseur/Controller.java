@@ -33,34 +33,36 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
             rotation = new RotateTransition(Duration.seconds(0.5), buttonConvertion);
             ActionEvent actionEvent = new ActionEvent();
+            fabriqueDonnees();
+            initConvertion(conversionDevises.get(0));
             convertion(actionEvent);
             comboSelection(actionEvent);
     }
     public void convertion(ActionEvent actionEvent) {
         buttonConvertion.setOnAction(event -> {
             try {
-                if (Objects.equals(comboSelection.getValue(), "Euro-Dollar US")) {
-                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * taux_Euro_Dollar;
+                if (Objects.equals(comboSelection.getValue(), conversionDevises.get(0).getPrompt())) {
+                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * conversionDevises.get(0).getTaux();
                     textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
 
-                } else if (Objects.equals(comboSelection.getValue(), "Dollar US-Euro")) {
-                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / taux_Euro_Dollar;
+                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(1).getPrompt())) {
+                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / conversionDevises.get(1).getTaux();
                     textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
 
-                } else if (Objects.equals(comboSelection.getValue(), "Euro-Livre")) {
-                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * taux_Euro_Livre;
+                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(2).getPrompt())) {
+                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * conversionDevises.get(2).getTaux();
                     textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
 
-                } else if (Objects.equals(comboSelection.getValue(), "Livre-Euro")) {
-                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / taux_Euro_Livre;
+                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(3).getPrompt())) {
+                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / conversionDevises.get(3).getTaux();
                     textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
 
-                } else if (Objects.equals(comboSelection.getValue(), "Euro-Yen")) {
-                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * taux_Euro_Yen;
+                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(4).getPrompt())) {
+                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * conversionDevises.get(4).getTaux();
                     textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
 
-                } else if (Objects.equals(comboSelection.getValue(), "Yen-Euro")) {
-                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / taux_Euro_Yen;
+                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(5).getPrompt())) {
+                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / conversionDevises.get(5).getTaux();
                     textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
                 }
             } catch (NumberFormatException e) {
@@ -69,14 +71,11 @@ public class Controller implements Initializable {
         });
     }
     public void comboSelection(ActionEvent actionEvent) {
-        comboSelection.getItems().add("Euro-Dollar US");
-        comboSelection.getItems().add("Dollar US-Euro");
-        comboSelection.getItems().add("Euro-Livre");
-        comboSelection.getItems().add("Livre-Euro");
-        comboSelection.getItems().add("Euro-Yen");
-        comboSelection.getItems().add("Yen-Euro");
+        for (ConversionDevise conversionDevise: conversionDevises) {
+            comboSelection.getItems().add(conversionDevise.getPrompt());
+        }
 
-        comboSelection.setValue(comboSelection.getItems().get(0));
+        comboSelection.setValue(conversionDevises.get(0).getPrompt());
 
         final boolean[] isEuroFirstChosen = {true};
         final boolean[] isEuroSecondChosen = {false};
@@ -166,9 +165,21 @@ public class Controller implements Initializable {
         dialogWindow.showAndWait();
     }
     public void fabriqueDonnees() {
-
+        ConversionDevise conversionDevise1 = new ConversionDevise("Euro-Dollar US", "Euro", "Dollar US", 1.11);
+        ConversionDevise conversionDevise2 = new ConversionDevise("Dollar US-Euro", "Dollar US", "Euro", 1.11);
+        ConversionDevise conversionDevise3 = new ConversionDevise("Euro-Livre", "Euro", "Livre", 0.85);
+        ConversionDevise conversionDevise4 = new ConversionDevise("Livre-Euro", "Livre", "Euro", 0.85);
+        ConversionDevise conversionDevise5 = new ConversionDevise("Euro-Yen", "Euro", "Yen", 160.99);
+        ConversionDevise conversionDevise6 = new ConversionDevise("Yen-Euro", "Yen", "Euro", 160.99);
+        conversionDevises.add(conversionDevise1);
+        conversionDevises.add(conversionDevise2);
+        conversionDevises.add(conversionDevise3);
+        conversionDevises.add(conversionDevise4);
+        conversionDevises.add(conversionDevise5);
+        conversionDevises.add(conversionDevise6);
     }
     public void initConvertion(ConversionDevise conversionDevise) {
-
+        label_Init.setText(conversionDevise.getSource());
+        label_Final.setText(conversionDevise.getCible());
     }
 }
