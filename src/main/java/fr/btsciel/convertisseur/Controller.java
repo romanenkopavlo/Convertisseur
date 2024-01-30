@@ -10,7 +10,6 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -38,29 +37,16 @@ public class Controller implements Initializable {
     public void convertion(ActionEvent actionEvent) {
         buttonConvertion.setOnAction(event -> {
             try {
-                if (Objects.equals(comboSelection.getValue(), conversionDevises.get(0).getPrompt())) {
-                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * conversionDevises.get(0).getTaux();
-                    textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-
-                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(1).getPrompt())) {
-                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / conversionDevises.get(1).getTaux();
-                    textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-
-                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(2).getPrompt())) {
-                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * conversionDevises.get(2).getTaux();
-                    textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-
-                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(3).getPrompt())) {
-                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / conversionDevises.get(3).getTaux();
-                    textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-
-                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(4).getPrompt())) {
-                    valeur_Conversion = Double.parseDouble(textField_Init.getText()) * conversionDevises.get(4).getTaux();
-                    textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-
-                } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(5).getPrompt())) {
-                    valeur_Conversion = Double.parseDouble(textField_Final.getText()) / conversionDevises.get(5).getTaux();
-                    textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
+                for (ConversionDevise devise : conversionDevises) {
+                    if (comboSelection.getValue().equals(devise.getPrompt())) {
+                        if (textField_Init.isDisabled()) {
+                            valeur_Conversion = Double.parseDouble(textField_Final.getText()) / devise.getTaux();
+                            textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
+                        } else {
+                            valeur_Conversion = Double.parseDouble(textField_Init.getText()) * devise.getTaux();
+                            textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
+                        }
+                    }
                 }
             } catch (NumberFormatException e) {
                 alerteFormat();
@@ -68,88 +54,45 @@ public class Controller implements Initializable {
         });
     }
     public void comboSelection(ActionEvent actionEvent) {
-        for (ConversionDevise conversionDevise: conversionDevises) {
+        final boolean[] isEvenChosen = {true};
+        final boolean[] isOddChosen = {false};
+
+        for (ConversionDevise conversionDevise : conversionDevises) {
             comboSelection.getItems().add(conversionDevise.getPrompt());
         }
 
         comboSelection.setValue(conversionDevises.get(0).getPrompt());
 
-        final boolean[] isEuroFirstChosen = {true};
-        final boolean[] isEuroSecondChosen = {false};
-
         comboSelection.setOnAction(event -> {
+            int index = comboSelection.getSelectionModel().getSelectedIndex();
+            boolean isOddElement = index % 2 == 1;
 
-            if (Objects.equals(comboSelection.getValue(), conversionDevises.get(0).getPrompt())) {
-                label_Final.setText(conversionDevises.get(0).getCible());
-                textField_Init.setDisable(false);
-                textField_Final.setDisable(true);
-                if (!isEuroFirstChosen[0]) {
+            if (isOddElement) {
+                if (!isOddChosen[0]) {
                     rotation.setByAngle(180);
                     rotation.play();
+                    isOddChosen[0] = true;
+                    isEvenChosen[0] = false;
                 }
-                isEuroFirstChosen[0] = true;
-                isEuroSecondChosen[0] = false;
-
-            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(1).getPrompt())) {
-                label_Final.setText(conversionDevises.get(0).getCible());
-                textField_Init.setDisable(true);
-                textField_Final.setDisable(false);
-                if (!isEuroSecondChosen[0]) {
+                label_Final.setText(conversionDevises.get(index - 1).getCible());
+            } else {
+                if (!isEvenChosen[0]) {
                     rotation.setByAngle(180);
                     rotation.play();
+                    isEvenChosen[0] = true;
+                    isOddChosen[0] = false;
                 }
-                isEuroSecondChosen[0] = true;
-                isEuroFirstChosen[0] = false;
-
-            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(2).getPrompt())) {
-                label_Final.setText(conversionDevises.get(2).getCible());
-                textField_Init.setDisable(false);
-                textField_Final.setDisable(true);
-                if (!isEuroFirstChosen[0]) {
-                    rotation.setByAngle(180);
-                    rotation.play();
-                }
-                isEuroFirstChosen[0] = true;
-                isEuroSecondChosen[0] = false;
-
-            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(3).getPrompt())) {
-                label_Final.setText(conversionDevises.get(2).getCible());
-                textField_Init.setDisable(true);
-                textField_Final.setDisable(false);
-                if (!isEuroSecondChosen[0]) {
-                    rotation.setByAngle(180);
-                    rotation.play();
-                }
-                isEuroSecondChosen[0] = true;
-                isEuroFirstChosen[0] = false;
-
-            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(4).getPrompt())) {
-                label_Final.setText(conversionDevises.get(4).getCible());
-                textField_Init.setDisable(false);
-                textField_Final.setDisable(true);
-                if (!isEuroFirstChosen[0]) {
-                    rotation.setByAngle(180);
-                    rotation.play();
-                }
-                isEuroFirstChosen[0] = true;
-                isEuroSecondChosen[0] = false;
-
-            } else if (Objects.equals(comboSelection.getValue(), conversionDevises.get(5).getPrompt())) {
-                label_Final.setText(conversionDevises.get(4).getCible());
-                textField_Init.setDisable(true);
-                textField_Final.setDisable(false);
-                if (!isEuroSecondChosen[0]) {
-                    rotation.setByAngle(180);
-                    rotation.play();
-                }
-                isEuroSecondChosen[0] = true;
-                isEuroFirstChosen[0] = false;
+                label_Final.setText(conversionDevises.get(index).getCible());
             }
+
+            textField_Init.setDisable(isOddElement);
+            textField_Final.setDisable(!isOddElement);
 
             textField_Init.clear();
             textField_Final.clear();
         });
     }
+
     public void alerteFormat() {
         Alert dialogWindow = new Alert(Alert.AlertType.WARNING);
         dialogWindow.setTitle("Error");
@@ -162,8 +105,8 @@ public class Controller implements Initializable {
         dialogWindow.showAndWait();
     }
     public void fabriqueDonnees() {
-        ConversionDevise conversionDevise1 = new ConversionDevise("Euro-Dollar US", "Euro", "Dollar US", 1.11);
-        ConversionDevise conversionDevise2 = new ConversionDevise("Dollar US-Euro", "Dollar US", "Euro", 1.11);
+        ConversionDevise conversionDevise1 = new ConversionDevise("Euro-Dollars US", "Euro", "Dollars US", 1.11);
+        ConversionDevise conversionDevise2 = new ConversionDevise("Dollars US-Euro", "Dollars US", "Euro", 1.11);
         ConversionDevise conversionDevise3 = new ConversionDevise("Euro-Livre", "Euro", "Livre", 0.85);
         ConversionDevise conversionDevise4 = new ConversionDevise("Livre-Euro", "Livre", "Euro", 0.85);
         ConversionDevise conversionDevise5 = new ConversionDevise("Euro-Yen", "Euro", "Yen", 160.99);
