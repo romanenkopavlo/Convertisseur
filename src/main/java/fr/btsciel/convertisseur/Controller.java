@@ -1,7 +1,6 @@
 package fr.btsciel.convertisseur;
 
 import javafx.animation.RotateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +18,8 @@ public class Controller implements Initializable {
     public TextField textField_Init;
     public TextField textField_Final;
     public Button buttonConvertion;
+    public final boolean[] isEvenChosen = {true};
+    public final boolean[] isOddChosen = {false};
     public ComboBox<String> comboSelection = new ComboBox<>();
     public double valeur_Conversion;
     public RotateTransition rotation;
@@ -28,69 +29,61 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
             rotation = new RotateTransition(Duration.seconds(0.5), buttonConvertion);
-            ActionEvent actionEvent = new ActionEvent();
             fabriqueDonnees();
+
+            for (ConversionDevise conversionDevise : conversionDevises) {
+                comboSelection.getItems().add(conversionDevise.getPrompt());
+            }
+            comboSelection.setValue(conversionDevises.get(0).getPrompt());
+
             initConvertion(conversionDevises.get(0));
-            convertion(actionEvent);
-            comboSelection(actionEvent);
+            buttonConvertion.setOnAction(event -> convertion());
+            comboSelection.setOnAction(event -> comboSelection());
     }
-    public void convertion(ActionEvent actionEvent) {
-        buttonConvertion.setOnAction(event -> {
-            try {
-                for (ConversionDevise devise : conversionDevises) {
-                    if (comboSelection.getValue().equals(devise.getPrompt())) {
-                        if (textField_Init.isDisabled()) {
-                            valeur_Conversion = Double.parseDouble(textField_Final.getText()) / devise.getTaux();
-                            textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-                        } else {
-                            valeur_Conversion = Double.parseDouble(textField_Init.getText()) * devise.getTaux();
-                            textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
-                        }
+    public void convertion() {
+        try {
+            for (ConversionDevise devise : conversionDevises) {
+                if (comboSelection.getValue().equals(devise.getPrompt())) {
+                    if (textField_Init.isDisabled()) {
+                        valeur_Conversion = Double.parseDouble(textField_Final.getText()) / devise.getTaux();
+                        textField_Init.setText(df.format(valeur_Conversion).replaceAll(",", "."));
+                    } else {
+                        valeur_Conversion = Double.parseDouble(textField_Init.getText()) * devise.getTaux();
+                        textField_Final.setText(df.format(valeur_Conversion).replaceAll(",", "."));
                     }
                 }
-            } catch (NumberFormatException e) {
-                alerteFormat();
             }
-        });
+        } catch (NumberFormatException e) {
+            alerteFormat();
+        }
     }
-    public void comboSelection(ActionEvent actionEvent) {
-        final boolean[] isEvenChosen = {true};
-        final boolean[] isOddChosen = {false};
+    public void comboSelection() {
+        int index = comboSelection.getSelectionModel().getSelectedIndex();
+        boolean isOddElement = index % 2 == 1;
 
-        for (ConversionDevise conversionDevise : conversionDevises) {
-            comboSelection.getItems().add(conversionDevise.getPrompt());
+        if (isOddElement) {
+            if (!isOddChosen[0]) {
+                rotation.setByAngle(180);
+                rotation.play();
+                isOddChosen[0] = true;
+                isEvenChosen[0] = false;
+            }
+            label_Final.setText(conversionDevises.get(index - 1).getCible());
+        } else {
+            if (!isEvenChosen[0]) {
+                rotation.setByAngle(180);
+                rotation.play();
+                isEvenChosen[0] = true;
+                isOddChosen[0] = false;
+            }
+            label_Final.setText(conversionDevises.get(index).getCible());
         }
 
-        comboSelection.setValue(conversionDevises.get(0).getPrompt());
+        textField_Init.setDisable(isOddElement);
+        textField_Final.setDisable(!isOddElement);
 
-        comboSelection.setOnAction(event -> {
-            int index = comboSelection.getSelectionModel().getSelectedIndex();
-            boolean isOddElement = index % 2 == 1;
-
-            if (isOddElement) {
-                if (!isOddChosen[0]) {
-                    rotation.setByAngle(180);
-                    rotation.play();
-                    isOddChosen[0] = true;
-                    isEvenChosen[0] = false;
-                }
-                label_Final.setText(conversionDevises.get(index - 1).getCible());
-            } else {
-                if (!isEvenChosen[0]) {
-                    rotation.setByAngle(180);
-                    rotation.play();
-                    isEvenChosen[0] = true;
-                    isOddChosen[0] = false;
-                }
-                label_Final.setText(conversionDevises.get(index).getCible());
-            }
-
-            textField_Init.setDisable(isOddElement);
-            textField_Final.setDisable(!isOddElement);
-
-            textField_Init.clear();
-            textField_Final.clear();
-        });
+        textField_Init.clear();
+        textField_Final.clear();
     }
 
     public void alerteFormat() {
